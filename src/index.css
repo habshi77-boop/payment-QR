@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    background-color: #f6f8f7;
+    color: #0f172a;
+  }
+
+  ::selection {
+    background-color: rgba(0, 168, 89, 0.16);
+    color: #064e3b;
+  }
+
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+@keyframes scanBeam {
+  0% {
+    transform: translateY(0%);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translateY(180px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0%);
+    opacity: 0.7;
+  }
+}
+
+.animate-scan-beam {
+  animation: scanBeam 2.1s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .animate-scan-beam {
+    animation: none;
+  }
+}
